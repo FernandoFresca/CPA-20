@@ -1,0 +1,306 @@
+<!-- Modais de Autenticação -->
+
+<!-- Modal de Login -->
+<div id="login-modal" class="modal">
+    <div class="modal-content bg-white p-6 rounded-[20px] shadow-lg max-w-md w-full">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-[#2B2B2B] text-xl font-bold">Acessar Conta</h3>
+            <button class="close-modal text-[#5A5A5A] hover:text-[#F53838]">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        
+        <form id="login-form" class="space-y-4">
+            <div class="form-group">
+                <label for="login-email" class="text-[#2B2B2B] font-medium block mb-2">E-mail:</label>
+                <input type="email" id="login-email" name="email" required 
+                    placeholder="Digite seu e-mail" 
+                    class="w-full p-3 border border-[#DDDDDD] rounded-[10px]">
+            </div>
+            
+            <div class="form-group">
+                <label for="login-password" class="text-[#2B2B2B] font-medium block mb-2">Senha:</label>
+                <input type="password" id="login-password" name="password" required 
+                    placeholder="Digite sua senha" 
+                    class="w-full p-3 border border-[#DDDDDD] rounded-[10px]">
+            </div>
+            
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember-me" class="mr-2">
+                    <label for="remember-me" class="text-[#5A5A5A] text-sm">Lembrar-me</label>
+                </div>
+                <button type="button" id="forgot-password-btn" class="text-[#F53838] text-sm hover:underline">
+                    Esqueceu a senha?
+                </button>
+            </div>
+            
+            <div id="login-error" class="text-[#F53838] text-sm hidden"></div>
+            
+            <button type="submit" class="btn btn-primary w-full">Entrar</button>
+            
+            <div class="relative flex items-center py-2">
+                <div class="flex-grow border-t border-[#DDDDDD]"></div>
+                <span class="flex-shrink mx-4 text-[#5A5A5A] text-sm">ou</span>
+                <div class="flex-grow border-t border-[#DDDDDD]"></div>
+            </div>
+            
+            <button type="button" id="google-login-btn" class="btn btn-outline w-full flex items-center justify-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.8055 10.2275C19.8055 9.51169 19.7485 8.79587 19.6345 8.10156H10.2002V11.8823H15.6196C15.3916 13.0956 14.6975 14.1275 13.6656 14.7784V17.2637H16.8978C18.7962 15.5456 19.8055 13.1275 19.8055 10.2275Z" fill="#4285F4"/>
+                    <path d="M10.2002 20.0001C12.897 20.0001 15.1716 19.1138 16.8978 17.2637L13.6656 14.7783C12.7793 15.3638 11.6073 15.7092 10.2002 15.7092C7.5944 15.7092 5.38612 14.0092 4.58885 11.7001H1.25439V14.2638C2.97067 17.6365 6.34067 20.0001 10.2002 20.0001Z" fill="#34A853"/>
+                    <path d="M4.58887 11.7001C4.16068 10.4868 4.16068 9.15042 4.58887 7.93715V5.37347H1.25442C-0.154672 8.09893 -0.154672 11.5383 1.25442 14.2638L4.58887 11.7001Z" fill="#FBBC04"/>
+                    <path d="M10.2002 4.29088C11.6263 4.27361 13.0052 4.82179 14.0371 5.82179L16.8978 2.96088C15.0623 1.23634 12.6715 0.272793 10.2002 0.290884C6.34067 0.290884 2.97067 2.65452 1.25439 6.02725L4.58885 8.59088C5.38612 6.28179 7.5944 4.58179 10.2002 4.29088Z" fill="#EA4335"/>
+                </svg>
+                Entrar com Google
+            </button>
+            
+            <p class="text-center text-[#5A5A5A] text-sm mt-4">
+                Não tem uma conta? 
+                <button type="button" id="switch-to-register" class="text-[#F53838] hover:underline">Criar conta</button>
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de Registro -->
+<div id="register-modal" class="modal">
+    <div class="modal-content bg-white p-6 rounded-[20px] shadow-lg max-w-md w-full">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-[#2B2B2B] text-xl font-bold">Criar Conta</h3>
+            <button class="close-modal text-[#5A5A5A] hover:text-[#F53838]">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        
+        <form id="register-form" class="space-y-4">
+            <div class="form-group">
+                <label for="register-name" class="text-[#2B2B2B] font-medium block mb-2">Nome completo:</label>
+                <input type="text" id="register-name" name="name" required 
+                    placeholder="Digite seu nome completo" 
+                    class="w-full p-3 border border-[#DDDDDD] rounded-[10px]">
+            </div>
+            
+            <div class="form-group">
+                <label for="register-email" class="text-[#2B2B2B] font-medium block mb-2">E-mail:</label>
+                <input type="email" id="register-email" name="email" required 
+                    placeholder="Digite seu e-mail" 
+                    class="w-full p-3 border border-[#DDDDDD] rounded-[10px]">
+            </div>
+            
+            <div class="form-group">
+                <label for="register-password" class="text-[#2B2B2B] font-medium block mb-2">Senha:</label>
+                <input type="password" id="register-password" name="password" required 
+                    placeholder="Crie uma senha" 
+                    class="w-full p-3 border border-[#DDDDDD] rounded-[10px]">
+                <p class="text-[#5A5A5A] text-xs mt-1">A senha deve ter pelo menos 6 caracteres</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="register-confirm-password" class="text-[#2B2B2B] font-medium block mb-2">Confirmar senha:</label>
+                <input type="password" id="register-confirm-password" name="confirmPassword" required 
+                    placeholder="Confirme sua senha" 
+                    class="w-full p-3 border border-[#DDDDDD] rounded-[10px]">
+            </div>
+            
+            <div id="register-error" class="text-[#F53838] text-sm hidden"></div>
+            
+            <button type="submit" class="btn btn-primary w-full">Criar Conta</button>
+            
+            <div class="relative flex items-center py-2">
+                <div class="flex-grow border-t border-[#DDDDDD]"></div>
+                <span class="flex-shrink mx-4 text-[#5A5A5A] text-sm">ou</span>
+                <div class="flex-grow border-t border-[#DDDDDD]"></div>
+            </div>
+            
+            <button type="button" id="google-register-btn" class="btn btn-outline w-full flex items-center justify-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.8055 10.2275C19.8055 9.51169 19.7485 8.79587 19.6345 8.10156H10.2002V11.8823H15.6196C15.3916 13.0956 14.6975 14.1275 13.6656 14.7784V17.2637H16.8978C18.7962 15.5456 19.8055 13.1275 19.8055 10.2275Z" fill="#4285F4"/>
+                    <path d="M10.2002 20.0001C12.897 20.0001 15.1716 19.1138 16.8978 17.2637L13.6656 14.7783C12.7793 15.3638 11.6073 15.7092 10.2002 15.7092C7.5944 15.7092 5.38612 14.0092 4.58885 11.7001H1.25439V14.2638C2.97067 17.6365 6.34067 20.0001 10.2002 20.0001Z" fill="#34A853"/>
+                    <path d="M4.58887 11.7001C4.16068 10.4868 4.16068 9.15042 4.58887 7.93715V5.37347H1.25442C-0.154672 8.09893 -0.154672 11.5383 1.25442 14.2638L4.58887 11.7001Z" fill="#FBBC04"/>
+                    <path d="M10.2002 4.29088C11.6263 4.27361 13.0052 4.82179 14.0371 5.82179L16.8978 2.96088C15.0623 1.23634 12.6715 0.272793 10.2002 0.290884C6.34067 0.290884 2.97067 2.65452 1.25439 6.02725L4.58885 8.59088C5.38612 6.28179 7.5944 4.58179 10.2002 4.29088Z" fill="#EA4335"/>
+                </svg>
+                Criar com Google
+            </button>
+            
+            <p class="text-center text-[#5A5A5A] text-sm mt-4">
+                Já tem uma conta? 
+                <button type="button" id="switch-to-login" class="text-[#F53838] hover:underline">Fazer login</button>
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de Recuperação de Senha -->
+<div id="recovery-modal" class="modal">
+    <div class="modal-content bg-white p-6 rounded-[20px] shadow-lg max-w-md w-full">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-[#2B2B2B] text-xl font-bold">Recuperar Senha</h3>
+            <button class="close-modal text-[#5A5A5A] hover:text-[#F53838]">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        
+        <p class="text-[#5A5A5A] mb-4">Digite seu e-mail para receber instruções de recuperação de senha.</p>
+        
+        <form id="recovery-form" class="space-y-4">
+            <div class="form-group">
+                <label for="recovery-email" class="text-[#2B2B2B] font-medium block mb-2">E-mail:</label>
+                <input type="email" id="recovery-email" name="email" required 
+                    placeholder="Digite seu e-mail" 
+                    class="w-full p-3 border border-[#DDDDDD] rounded-[10px]">
+            </div>
+            
+            <div id="recovery-error" class="text-[#F53838] text-sm hidden"></div>
+            <div id="recovery-success" class="text-green-600 text-sm hidden"></div>
+            
+            <button type="submit" class="btn btn-primary w-full">Enviar</button>
+            
+            <p class="text-center text-[#5A5A5A] text-sm mt-4">
+                <button type="button" id="back-to-login" class="text-[#F53838] hover:underline">Voltar para o login</button>
+            </p>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de Convite para Criar Conta -->
+<div id="invite-register-modal" class="modal">
+    <div class="modal-content bg-white p-6 rounded-[20px] shadow-lg max-w-md w-full">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-[#2B2B2B] text-xl font-bold">Salvar seu resultado</h3>
+            <button class="close-modal text-[#5A5A5A] hover:text-[#F53838]">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="text-center mb-6">
+            <div class="bg-[#F8F8F8] w-[80px] h-[80px] rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 6L9 17L4 12" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h4 class="text-[#2B2B2B] text-lg font-semibold">Parabéns pelo seu resultado!</h4>
+            <p class="text-[#5A5A5A] mt-2">Crie uma conta para salvar seu histórico de simulados e acompanhar seu progresso.</p>
+        </div>
+        
+        <div class="flex flex-col gap-3">
+            <button id="create-account-btn" class="btn btn-primary w-full">Criar Conta</button>
+            <button id="login-account-btn" class="btn btn-outline w-full">Já tenho uma conta</button>
+            <button id="skip-account-btn" class="text-[#5A5A5A] hover:text-[#F53838] text-sm mt-2">Continuar sem salvar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Página de Perfil do Usuário -->
+<section id="profile-page" class="page">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-[#2B2B2B] text-3xl font-bold">Meu Perfil</h2>
+        <button id="logout-button" class="btn btn-outline flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Sair
+        </button>
+    </div>
+    
+    <div class="bg-white p-6 rounded-[20px] shadow-sm mb-8">
+        <div class="flex items-center gap-4 mb-6">
+            <div class="bg-[#F8F8F8] w-[64px] h-[64px] rounded-full flex items-center justify-center text-2xl font-bold text-[#F53838]" id="profile-avatar">
+                <!-- Iniciais do usuário serão inseridas via JavaScript -->
+            </div>
+            <div>
+                <h3 class="text-[#2B2B2B] text-xl font-semibold" id="profile-name">Nome do Usuário</h3>
+                <p class="text-[#5A5A5A]" id="profile-email">email@exemplo.com</p>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-[#F8F8F8] p-4 rounded-[10px] text-center">
+                <span class="text-[#5A5A5A] text-sm">Total de simulados</span>
+                <span id="total-simulations" class="text-[#2B2B2B] text-2xl font-bold block">0</span>
+            </div>
+            <div class="bg-[#F8F8F8] p-4 rounded-[10px] text-center">
+                <span class="text-[#5A5A5A] text-sm">Média de acertos</span>
+                <span id="average-score" class="text-[#2B2B2B] text-2xl font-bold block">0%</span>
+            </div>
+            <div class="bg-[#F8F8F8] p-4 rounded-[10px] text-center">
+                <span class="text-[#5A5A5A] text-sm">Aprovações</span>
+                <span id="total-approvals" class="text-[#2B2B2B] text-2xl font-bold block">0</span>
+            </div>
+        </div>
+        
+        <button id="start-new-simulation" class="btn btn-primary">Iniciar Novo Simulado</button>
+    </div>
+    
+    <h3 class="text-[#2B2B2B] text-xl font-semibold mb-4">Histórico de Simulados</h3>
+    
+    <div id="simulations-history" class="space-y-4">
+        <!-- Os itens do histórico serão inseridos via JavaScript -->
+        <div class="empty-history text-center text-[#5A5A5A] py-8">
+            Você ainda não realizou nenhum simulado.
+        </div>
+    </div>
+</section>
+
+<!-- Template para item do histórico de simulados -->
+<template id="simulation-history-item-template">
+    <div class="simulation-history-item bg-white p-6 rounded-[20px] shadow-sm">
+        <div class="flex justify-between items-start mb-4">
+            <div>
+                <h4 class="text-[#2B2B2B] font-semibold simulation-date">Data do Simulado</h4>
+                <p class="text-[#5A5A5A] text-sm simulation-time">Horário</p>
+            </div>
+            <div class="simulation-status px-3 py-1 rounded-[10px] text-sm font-medium"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div class="flex items-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 11.0799V11.9999C21.9988 14.1563 21.3005 16.2545 20.0093 17.9817C18.7182 19.7088 16.9033 20.9723 14.8354 21.5838C12.7674 22.1952 10.5573 22.1218 8.53447 21.3746C6.51168 20.6274 4.78465 19.246 3.61096 17.4369C2.43727 15.6279 1.87979 13.4879 2.02168 11.3362C2.16356 9.18443 2.99721 7.13619 4.39828 5.49694C5.79935 3.85768 7.69279 2.71525 9.79619 2.24001C11.8996 1.76477 14.1003 1.9822 16.07 2.85986" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 4L12 14.01L9 11.01" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                    <span class="text-[#5A5A5A] text-sm">Acertos</span>
+                    <span class="simulation-correct block text-[#2B2B2B] font-medium">0/50</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 9L9 15" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 9L15 15" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                    <span class="text-[#5A5A5A] text-sm">Erros</span>
+                    <span class="simulation-wrong block text-[#2B2B2B] font-medium">0/50</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 8V12L15 15" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3.05078 11.0002C3.27441 8.18983 4.51578 5.54696 6.53904 3.63861C8.56231 1.73026 11.2128 0.714681 13.9828 0.821238C16.7529 0.927795 19.3101 2.14866 21.1937 4.20345C23.0773 6.25824 24.1325 8.99176 24.1325 11.8252C24.1325 14.6586 23.0773 17.3921 21.1937 19.4469C19.3101 21.5017 16.7529 22.7226 13.9828 22.8291C11.2128 22.9357 8.56231 21.9201 6.53904 20.0117C4.51578 18.1034 3.27441 15.4605 3.05078 12.6502" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                    <span class="text-[#5A5A5A] text-sm">Tempo</span>
+                    <span class="simulation-time-spent block text-[#2B2B2B] font-medium">00:00:00</span>
+                </div>
+            </div>
+        </div>
+        
+        <button class="review-simulation-btn btn btn-outline w-full">Revisar Questões Erradas</button>
+    </div>
+</template>

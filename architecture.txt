@@ -1,0 +1,69 @@
+/**
+ * Arquitetura do Site Simulado CPA-10
+ * 
+ * Este documento descreve a arquitetura e estrutura do site interativo
+ * que simula a prova da certificação CPA-10 da ANBIMA.
+ */
+
+// Estrutura de Arquivos
+- index.html          // Página inicial com formulário de nome e instruções
+- css/
+  - styles.css        // Estilos principais do site
+  - responsive.css    // Estilos específicos para responsividade
+- js/
+  - app.js            // Aplicação principal e inicialização
+  - questions.js      // Gerenciamento do banco de questões
+  - timer.js          // Implementação do temporizador
+  - quiz.js           // Lógica do simulado (exibição de questões, verificação de respostas)
+  - results.js        // Processamento e exibição de resultados
+  - ranking.js        // Gerenciamento do ranking de participantes
+  - storage.js        // Funções para armazenamento local
+- data/
+  - questions.json    // Banco de dados de questões
+
+// Fluxo de Funcionamento
+1. Página Inicial
+   - Usuário insere nome completo
+   - Exibe informações sobre o formato da prova
+   - Botão para iniciar o simulado
+
+2. Simulado
+   - Carrega 50 questões aleatórias do banco de dados
+   - Exibe uma questão por vez com 4 alternativas
+   - Temporizador de 2 horas visível
+   - Navegação entre questões
+   - Finalização automática ao término do tempo ou manual pelo usuário
+
+3. Resultados
+   - Exibe número de acertos e erros
+   - Informa aprovação (≥35 acertos) ou reprovação
+   - Opção para revisar apenas questões erradas
+   - Exibe posição no ranking
+   - Opção para reiniciar com novas questões aleatórias
+
+4. Ranking
+   - Tabela com nome e pontuação dos participantes
+   - Ordenado por pontuação (maior para menor)
+   - Destaque para a posição do usuário atual
+
+// Componentes Principais
+- UserManager: Gerencia dados do usuário atual
+- QuestionBank: Carrega e gerencia o banco de questões
+- QuizEngine: Controla a lógica do simulado
+- Timer: Implementa o temporizador regressivo
+- ResultProcessor: Processa e exibe os resultados
+- RankingManager: Gerencia o ranking de participantes
+- StorageManager: Gerencia o armazenamento local
+
+// Armazenamento Local (localStorage)
+- userData: Dados do usuário atual
+- quizState: Estado atual do simulado (questões, respostas, tempo)
+- quizResults: Resultados do último simulado
+- rankingData: Dados do ranking de participantes
+
+// Design e Experiência do Usuário
+- Cores neutras e profissionais
+- Tipografia legível
+- Layout responsivo para dispositivos móveis e desktop
+- Animações suaves para transições
+- Feedback visual para interações do usuário

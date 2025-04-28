@@ -1,0 +1,174 @@
+# Documentação do Simulador CPA-10 com Sistema de Contas de Usuário
+
+Este documento explica a estrutura e funcionamento do Simulador CPA-10, incluindo o sistema de contas de usuário implementado.
+
+## Estrutura de Arquivos
+
+### Arquivos HTML
+
+- **index.html**: Arquivo principal que contém a estrutura da página, incluindo todas as seções do simulador (página inicial, simulado, resultados, revisão, ranking e perfil).
+
+- **auth-components.html**: Contém os componentes HTML para o sistema de autenticação, incluindo modais de login, registro, recuperação de senha e convite para criar conta, além da página de perfil do usuário.
+
+### Arquivos CSS
+
+- **styles.css**: Estilos principais do simulador, incluindo layout, cores, tipografia e componentes.
+
+- **responsive.css**: Estilos específicos para responsividade, garantindo que o simulador funcione bem em diferentes tamanhos de tela.
+
+- **auth.css**: Estilos específicos para os componentes de autenticação, incluindo modais, formulários e página de perfil.
+
+### Arquivos JavaScript
+
+- **app.js**: Arquivo principal que inicializa a aplicação e coordena os diferentes componentes.
+
+- **storage.js**: Gerencia o armazenamento local (localStorage) para salvar e recuperar dados do simulado.
+
+- **questions.js**: Gerencia o banco de questões, incluindo carregamento e seleção aleatória.
+
+- **timer.js**: Implementa o temporizador de 2 horas para o simulado.
+
+- **quiz.js**: Implementa a lógica do simulado, incluindo navegação entre questões e seleção de respostas.
+
+- **results.js**: Gerencia a exibição e cálculo dos resultados do simulado.
+
+- **ranking.js**: Gerencia o ranking de participantes.
+
+- **auth.js**: Implementa a lógica de autenticação, incluindo registro, login e logout.
+
+- **profile.js**: Gerencia a página de perfil do usuário e o histórico de simulados.
+
+- **password-recovery.js**: Implementa a funcionalidade de recuperação de senha.
+
+- **integration.js**: Integra o sistema de contas com o simulador existente.
+
+### Diretórios
+
+- **css/**: Contém todos os arquivos CSS.
+
+- **js/**: Contém todos os arquivos JavaScript.
+
+- **data/**: Contém o banco de questões em formato JSON.
+
+- **database/**: Contém scripts para processamento e extração de questões.
+
+## Funcionalidades Principais
+
+### Simulador CPA-10
+
+1. **Página Inicial**
+   - Campo para nome do usuário
+   - Informações sobre o formato da prova
+   - Botão para iniciar o simulado
+   - Visualização prévia do ranking
+
+2. **Simulado**
+   - 50 questões de múltipla escolha selecionadas aleatoriamente
+   - Temporizador de 2 horas
+   - Navegação entre questões
+   - Marcação de respostas
+
+3. **Resultados**
+   - Exibição da pontuação (acertos/erros)
+   - Status de aprovação (mínimo de 35 acertos)
+   - Tempo utilizado
+   - Opções para revisar questões erradas, iniciar novo simulado ou ver ranking
+
+4. **Revisão**
+   - Visualização das questões erradas
+   - Exibição da resposta correta e da resposta selecionada
+
+5. **Ranking**
+   - Lista de participantes ordenada por pontuação
+   - Exibição de nome, pontuação e data
+
+### Sistema de Contas de Usuário
+
+1. **Registro de Usuário**
+   - Formulário para criar conta com nome, e-mail e senha
+   - Opção para criar conta com Google
+   - Validação de dados
+
+2. **Login**
+   - Formulário para acessar conta com e-mail e senha
+   - Opção para login com Google
+   - Opção "Lembrar-me"
+
+3. **Recuperação de Senha**
+   - Formulário para solicitar recuperação de senha
+   - Geração de nova senha (simulada)
+
+4. **Perfil do Usuário**
+   - Exibição de dados básicos (nome, e-mail)
+   - Estatísticas (total de simulados, média de acertos, aprovações)
+   - Histórico de simulados
+
+5. **Histórico de Simulados**
+   - Lista de simulados realizados
+   - Detalhes de cada simulado (data, pontuação, status, tempo)
+   - Opção para revisar questões erradas de cada simulado
+
+6. **Convite para Criar Conta**
+   - Modal exibido ao final do simulado para usuários não logados
+   - Opção para criar conta ou fazer login
+   - Salvamento retroativo do resultado
+
+## Fluxo de Funcionamento
+
+1. **Inicialização**
+   - Carregamento da página inicial
+   - Verificação de estado de autenticação
+   - Exibição dos botões apropriados no header
+
+2. **Início do Simulado**
+   - Usuário preenche o nome (ou usa o nome da conta se estiver logado)
+   - Sistema seleciona 50 questões aleatórias
+   - Temporizador é iniciado
+
+3. **Durante o Simulado**
+   - Usuário navega entre questões e seleciona respostas
+   - Sistema salva o estado do simulado periodicamente
+   - Temporizador é atualizado constantemente
+
+4. **Finalização do Simulado**
+   - Sistema calcula a pontuação
+   - Exibe os resultados
+   - Se o usuário estiver logado, salva o resultado no histórico
+   - Se não estiver logado, oferece criação de conta
+
+5. **Revisão e Ranking**
+   - Usuário pode revisar questões erradas
+   - Usuário pode visualizar o ranking
+   - Usuário pode iniciar novo simulado
+
+6. **Perfil e Histórico**
+   - Usuário logado pode acessar seu perfil
+   - Visualizar estatísticas e histórico de simulados
+   - Revisar questões erradas de simulados anteriores
+
+## Armazenamento de Dados
+
+Todos os dados são armazenados localmente no navegador do usuário usando localStorage:
+
+- **cpa10_userData**: Dados do usuário atual
+- **cpa10_quizState**: Estado atual do simulado
+- **cpa10_quizResults**: Resultados do último simulado
+- **cpa10_rankingData**: Dados do ranking
+- **cpa10_users**: Lista de usuários registrados
+- **cpa10_currentUser**: Usuário atualmente logado
+- **cpa10_userHistory_[userId]**: Histórico de simulados por usuário
+- **cpa10_recoveryTokens**: Tokens de recuperação de senha
+
+## Considerações de Segurança
+
+- Senhas são armazenadas com hash (simulado)
+- Validação de dados em todos os formulários
+- Proteção contra XSS nos dados armazenados
+
+## Limitações e Melhorias Futuras
+
+- Implementação real de autenticação com Google
+- Armazenamento em servidor para maior segurança e persistência
+- Envio real de e-mails para recuperação de senha
+- Adição de mais estatísticas e gráficos no perfil do usuário
+- Implementação de temas (claro/escuro)

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado CPA-10 ANBIMA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-white overflow-hidden">
+        <!-- Header -->
+        <header class="flex min-h-[80px] w-full items-center justify-between px-[40px] lg:px-[148px] py-4">
+            <div class="flex items-center gap-[11px]">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-[rgba(21,21,21,1)]">Simulado</span>
+                    <span class="font-semibold text-[rgba(16,16,16,1)]">CPA-10</span>
+                </div>
+            </div>
+            <nav class="flex items-center gap-[15px]">
+                <button id="view-ranking-button" class="btn btn-ghost">Ver Ranking</button>
+                <button id="header-start-button" class="btn btn-outline">Iniciar Prova</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Container principal -->
+            <div class="container">
+                <!-- Página inicial / Hero Section -->
+                <section id="home-page" class="page active">
+                    <div class="flex w-full flex-col items-center mt-[55px] max-md:mt-10">
+                        <div class="flex items-center gap-[18px] flex-wrap">
+                            <div class="flex min-w-60 flex-col items-stretch justify-center w-[553px] my-auto max-md:max-w-full">
+                                <div class="flex max-w-full w-[553px] flex-col items-stretch font-normal justify-center">
+                                    <h1 class="text-[#2B2B2B] text-[50px] max-md:text-[40px]">
+                                        <span class="text-[40px]">Teste para Certificação</span>
+                                        <span class="font-bold">CPA-10</span>
+                                    </h1>
+                                    <p class="text-[rgba(90,90,90,1)] text-base mt-[11px]">
+                                        SEM CUSTO E SEM CADASTRO
+                                    </p>
+                                </div>
+                                
+                                <div class="info-card mt-6">
+                                    <h2 class="text-[#2B2B2B] text-xl font-semibold mb-4">Informações sobre a prova</h2>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-center gap-2">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            <span><strong>Questões:</strong> 50 questões de múltipla escolha</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            <span><strong>Duração:</strong> 2 horas</span>
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            <span><strong>Aprovação:</strong> Mínimo de 35 acertos (70%)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <form id="start-form" class="start-form mt-[30px]">
+                                    <div class="form-group">
+                                        <label for="user-name" class="text-[#2B2B2B] font-medium">Nome completo:</label>
+                                        <input type="text" id="user-name" name="user-name" required placeholder="Digite seu nome completo" 
+                                            class="w-full p-3 border border-[#DDDDDD] rounded-[10px] mt-2">
+                                    </div>
+                                    <button type="submit" id="start-button" class="btn btn-primary mt-[30px]">
+                                        Iniciar Simulado
+                                    </button>
+                                </form>
+                            </div>
+                            
+                            <div class="hero-image w-[569px] self-stretch min-w-60 my-auto max-md:max-w-full">
+                                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/21b6672975ea8af69a2266ac19e2787318c97440?placeholderIfAbsent=true" 
+                                    alt="Ilustração de pessoa estudando" 
+                                    class="aspect-[1.6] object-contain w-full">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ranking-preview mt-[60px] max-md:mt-[40px]">
+                        <h3 class="text-[#2B2B2B] text-xl font-semibold mb-4">Ranking de Participantes</h3>
+                        <div id="ranking-preview-list" class="bg-[#F8F8F8] p-6 rounded-[20px]">
+                            <p class="empty-ranking text-center text-[#5A5A5A]">Seja o primeiro a participar!</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Página do simulado -->
+                <section id="quiz-page" class="page">
+                    <div class="quiz-header">
+                        <div class="quiz-info">
+                            <span id="question-counter" class="text-[#2B2B2B] font-medium">Questão 1 de 50</span>
+                            <span id="user-info" class="text-[#5A5A5A]"></span>
+                        </div>
+                        <div class="timer bg-[#F8F8F8] px-4 py-2 rounded-[10px]">
+                            <span id="timer-display" class="text-[#F53838] font-bold">02:00:00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="question-container mt-8 bg-white p-6 rounded-[20px] shadow-sm">
+                        <div id="question-text" class="question-text text-[#2B2B2B] text-lg font-medium"></div>
+                        
+                        <div class="options-container mt-6 space-y-4">
+                            <div class="option" data-option="a">
+                                <span class="option-letter bg-[#F8F8F8] text-[#2B2B2B]">A</span>
+                                <span class="option-text"></span>
+                            </div>
+                            <div class="option" data-option="b">
+                                <span class="option-letter bg-[#F8F8F8] text-[#2B2B2B]">B</span>
+                                <span class="option-text"></span>
+                            </div>
+                            <div class="option" data-option="c">
+                                <span class="option-letter bg-[#F8F8F8] text-[#2B2B2B]">C</span>
+                                <span class="option-text"></span>
+                            </div>
+                            <div class="option" data-option="d">
+                                <span class="option-letter bg-[#F8F8F8] text-[#2B2B2B]">D</span>
+                                <span class="option-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-navigation mt-8">
+                        <button id="prev-button" class="btn btn-outline">Anterior</button>
+                        <div class="question-dots" id="question-dots"></div>
+                        <button id="next-button" class="btn btn-outline">Próxima</button>
+                    </div>
+                    
+                    <button id="finish-button" class="btn btn-primary mt-8">Finalizar Simulado</button>
+                </section>
+                
+                <!-- Página de resultados -->
+                <section id="results-page" class="page">
+                    <h2 class="text-[#2B2B2B] text-3xl font-bold text-center">Resultado do Simulado</h2>
+                    
+                    <div class="results-container mt-8">
+                        <div class="result-card bg-white p-8 rounded-[20px] shadow-sm text-center">
+                            <div class="score-display">
+                                <div id="score-circle" class="bg-[#F8F8F8] w-[150px] h-[150px] rounded-full flex flex-col items-center justify-center mx-auto">
+                                    <span id="score-value" class="text-[#F53838] text-5xl font-bold">0</span>
+                                    <span id="score-total" class="text-[#5A5A5A] text-xl">/50</span>
+                                </div>
+                            </div>
+                            <div id="approval-status" class="approval-status mt-4 inline-block px-6 py-2 rounded-[10px] font-bold"></div>
+                        </div>
+                        
+                        <div class="result-details mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="detail-item bg-[#F8F8F8] p-4 rounded-[10px] text-center">
+                                <span class="detail-label text-[#5A5A5A] font-medium">Acertos:</span>
+                                <span id="correct-answers" class="detail-value text-[#2B2B2B] text-2xl font-bold block mt-2">0</span>
+                            </div>
+                            <div class="detail-item bg-[#F8F8F8] p-4 rounded-[10px] text-center">
+                                <span class="detail-label text-[#5A5A5A] font-medium">Erros:</span>
+                                <span id="wrong-answers" class="detail-value text-[#2B2B2B] text-2xl font-bold block mt-2">0</span>
+                            </div>
+                            <div class="detail-item bg-[#F8F8F8] p-4 rounded-[10px] text-center">
+                                <span class="detail-label text-[#5A5A5A] font-medium">Tempo utilizado:</span>
+                                <span id="time-spent" class="detail-value text-[#2B2B2B] text-2xl font-bold block mt-2">00:00:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="results-actions mt-8 flex flex-wrap justify-center gap-4">
+                        <button id="review-button" class="btn btn-outline">Revisar Questões Erradas</button>
+                        <button id="restart-button" class="btn btn-primary">Novo Simulado</button>
+                        <button id="ranking-button" class="btn btn-outline">Ver Ranking</button>
+                    </div>
+                </section>
+                
+                <!-- Página de revisão -->
+                <section id="review-page" class="page">
+                    <h2 class="text-[#2B2B2B] text-3xl font-bold">Revisão de Questões</h2>
+                    
+                    <div id="review-container" class="review-container mt-8 space-y-8"></div>
+                    
+                    <div class="review-navigation mt-8 text-center">
+                        <button id="back-to-results" class="btn btn-primary">Voltar aos Resultados</button>
+                    </div>
+                </section>
+                
+                <!-- Página de ranking -->
+                <section id="ranking-page" class="page">
+                    <h2 class="text-[#2B2B2B] text-3xl font-bold">Ranking de Participantes</h2>
+                    
+                    <div class="ranking-container mt-8 bg-white p-6 rounded-[20px] shadow-sm overflow-x-auto">
+                        <table id="ranking-table" class="ranking-table w-full">
+                            <thead>
+                                <tr class="bg-[#F8F8F8]">
+                                    <th class="p-4 text-left font-semibold text-[#2B2B2B] rounded-tl-[10px]">Posição</th>
+                                    <th class="p-4 text-left font-semibold text-[#2B2B2B]">Nome</th>
+                                    <th class="p-4 text-left font-semibold text-[#2B2B2B]">Pontuação</th>
+                                    <th class="p-4 text-left font-semibold text-[#2B2B2B] rounded-tr-[10px]">Data</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ranking-body"></tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="ranking-navigation mt-8 text-center">
+                        <button id="back-to-home" class="btn btn-primary">Voltar ao Início</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="mt-[60px] py-8 bg-[#F8F8F8]">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center gap-[11px] mb-4 md:mb-0">
+                        <div class="logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="#F53838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-[rgba(21,21,21,1)]">Simulado</span>
+                            <span class="font-semibold text-[rgba(16,16,16,1)]">CPA-10</span>
+                        </div>
+                    </div>
+                    <p class="text-[#5A5A5A] text-sm">© 2025 Simulado CPA-10. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Modal de confirmação -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content bg-white p-6 rounded-[20px] shadow-lg max-w-md w-full">
+            <h3 class="text-[#2B2B2B] text-xl font-bold mb-4">Confirmar Finalização</h3>
+            <p class="text-[#5A5A5A] mb-6">Tem certeza que deseja finalizar o simulado?</p>
+            <div class="modal-actions flex justify-end gap-4">
+                <button id="cancel-finish" class="btn btn-outline">Cancelar</button>
+                <button id="confirm-finish" class="btn btn-primary">Finalizar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/results.js"></script>
+    <script src="js/ranking.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/password-recovery.js"></script>
+    <script src="js/integration.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
